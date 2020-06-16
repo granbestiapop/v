@@ -1,8 +1,8 @@
 ## Builds main Dockerfile
-build: 
+image: 
 	docker build -f ../../../Dockerfile.alpine -t vlang:alpine .
 ## Up services web and database
-up:
+up: image
 	docker-compose up -d
 
 ## Starts only database service
