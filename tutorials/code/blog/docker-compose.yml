@@ -1,0 +1,16 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "8080:8080"
+  database:
+    image: "postgres:alpine"
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./blog.sql:/docker-entrypoint-initdb.d/blog.sql
+    environment:
+      POSTGRES_USER: alex
+      POSTGRES_DB: blog
+      POSTGRES_HOST_AUTH_METHOD: trust
